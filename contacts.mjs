@@ -35,7 +35,7 @@ export const addContact = async (name, email, phone) => {
     const data = await fs.readFile(contactsPath, "utf-8");
     const contacts = JSON.parse(data);
     contacts.push(newContact);
-    console.table(contacts);
+    // console.table(contacts);
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
     console.log("Data written to file succesfully.");
   } catch (error) {
