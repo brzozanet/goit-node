@@ -20,9 +20,13 @@ export const listContacts = async () => {
   }
 };
 
-function getContactById(contactId) {
-  // ...twój kod
-}
+export const getContactById = async (contactId) => {
+  const data = await fs.readFile(contactsPath, "utf-8");
+  const contacts = JSON.parse(data);
+  const selectedContact = contacts.find((contact) => contact.id === contactId);
+  // console.table(selectedContact);
+  return selectedContact;
+};
 
 export const addContact = async (name, email, phone) => {
   const newContact = {
@@ -48,4 +52,5 @@ function removeContact(contactId) {
 }
 
 // listContacts();
+// getContactById("rsKkOQUi80UsgVPCcLZZW");
 // addContact("Paweł Brzozowski", "pawel@brzoza.net", "(48) 502636629");
