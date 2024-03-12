@@ -2,12 +2,12 @@
   "name": "goit-node-hw-01",
   "description": "Node Moduł 1 - Aplikacje konsolowe",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon contacts.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,7 @@
     "nodemon": "^3.1.0"
   },
   "dependencies": {
-    "nanoid": "^5.0.6",
+    "nanoid-esm": "^2.1.0-esm.4",
     "yargs": "^17.7.2"
   }
 }

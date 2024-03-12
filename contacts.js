@@ -1,15 +1,11 @@
-import fs from "fs/promises";
-import path from "path";
-import { nanoid } from "nanoid";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
+const fs = require("fs/promises");
+const path = require("path");
+const nanoid = require("nanoid-esm");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 // NOTE: pobiera z bazy danych listę kontaktów
-export const listContacts = async () => {
+const listContacts = async () => {
   try {
     const data = await fs.readFile(contactsPath, "utf-8");
     const contacts = JSON.parse(data);
@@ -23,7 +19,7 @@ export const listContacts = async () => {
 };
 
 // NOTE: pobiera z bazy danych kontakt o określonym ID
-export const getContactById = async (contactId) => {
+const getContactById = async (contactId) => {
   const data = await fs.readFile(contactsPath, "utf-8");
   const contacts = JSON.parse(data);
   const selectedContact = contacts.find((contact) => contact.id === contactId);
@@ -33,7 +29,7 @@ export const getContactById = async (contactId) => {
 };
 
 // NOTE: dodaje do bazy danych kontakt, dodatkowo generuje losowe ID za pomocą nanoid()
-export const addContact = async (name, email, phone) => {
+const addContact = async (name, email, phone) => {
   const newContact = {
     id: nanoid(),
     name,
@@ -53,7 +49,7 @@ export const addContact = async (name, email, phone) => {
 };
 
 // NOTE: usuwa z bazy danych kontakt o określonym ID
-export const removeContact = async (contactId) => {
+const removeContact = async (contactId) => {
   try {
     const data = await fs.readFile(contactsPath, "utf-8");
     const contacts = JSON.parse(data);
@@ -72,6 +68,8 @@ export const removeContact = async (contactId) => {
     console.error("Error during delete contact: ", error);
   }
 };
+
+module.exports = { listContacts, getContactById, addContact, removeContact };
 
 // listContacts();
 // getContactById("rsKkOQUi80UsgVPCcLZZW");
