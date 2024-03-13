@@ -61,6 +61,7 @@ const removeContact = async (contactId) => {
     } else {
       console.log(`Contact with id: '${contactId}' not found`);
     }
+    return contacts;
   } catch (error) {
     console.error("Error during delete contact: ", error);
   }
