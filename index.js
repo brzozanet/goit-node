@@ -6,9 +6,6 @@ const {
 } = require("./contacts.js");
 const argv = require("yargs").argv;
 
-// console.log("argv: ", argv);
-console.log(process.argv);
-
 const invokeAction = ({ action, id, name, email, phone }) => {
   let contacts, selectedContact, newContact;
 
@@ -34,7 +31,7 @@ const invokeAction = ({ action, id, name, email, phone }) => {
       break;
 
     default:
-      console.warn("\x1B[31m Unknown action type!");
+      console.warn("Unknown action type!");
   }
 };
 
