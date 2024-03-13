@@ -1,7 +1,7 @@
 # Node Moduł 1 - Aplikacje konsolowe
 
 > [!NOTE]
-> Zamiplementowana funkcjonalność generowania losowego ID podczas dodawnia nowego kontaktu, dla zgodności ze sztuką podczas budowania bazy danych. Wykorzystana biblioteka nanoid
+> Dodatkowo, zamiplementowana funkcjonalność generowania losowego ID podczas dodawania nowego kontaktu, dla zgodności ze sztuką podczas budowania bazy danych. Wykorzystana biblioteka nanoid
 
 ```
 node index.js --action list
